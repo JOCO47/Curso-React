@@ -1,10 +1,10 @@
 .card{
+    width: 15rem;
     padding: .5rem
 }
 
 .card>img{
     background-color: green;
-    height: 300px;
 }
 
 .card>h2{

@@ -1,14 +1,16 @@
 import style from './movieCard.module.css'
 
-function MovieCard({movie, isFav}){
-    const {title, poster} = movie
+const POSTER_PATH = 'https://www.themoviedb.org/t/p/w220_and_h330_face'
+
+function MovieCard({movie, isFav, toggleFav}){
+    const {title, poster_path, id} = movie
 
     return(
         <div className={style.card}>
-        <img src={poster} alt="poster de la película" />
+        <img src={POSTER_PATH + poster_path} alt="poster de la película" />
         <h2>{title}</h2>
-        <button className={isFav ? '' : style['fav']} onClick={()=>{}}>
-            {isFav ? 'Quitar de Favoritas' : 'Añadir a favoritas'}</button>
+        <button className={isFav(id) ? '' : style['fav']} onClick={()=>{toggleFav(movie)}}>
+            {isFav(id) ? 'Quitar de Favoritas' : 'Añadir a favoritas'}</button>
         </div>
     )
 }
